@@ -681,6 +681,39 @@
             </button>
           </div>
 
+          <!-- PRIMARY ACTION SYSTEM: 3-SECOND HOLD LOCKDOWN -->
+          <div class="space-y-3 pt-2">
+            <div class="w-full relative">
+              <button class="relative w-full h-16 rounded-full bg-surface-container-high border border-white/10 hover:border-primary/40 flex items-center justify-center overflow-hidden transition-all duration-200 select-none touch-none shadow-[0_8px_24px_rgba(0,0,0,0.5)] group cursor-pointer" id="lockdown-btn">
+                <!-- Outer subtle pulse aura when ready -->
+                <div class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/10 via-white/5 to-cyan-500/10 opacity-70 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+
+                <!-- Animated High-Tech Progress Fill Track -->
+                <div class="absolute left-0 top-0 bottom-0 bg-primary w-0 pointer-events-none transition-none shadow-[0_0_20px_rgba(255,255,255,0.7)]" id="lockdown-hold-progress"></div>
+
+                <!-- Glow Edge Head on the progress bar -->
+                <div class="absolute top-0 bottom-0 w-2 bg-white blur-[2px] opacity-0 pointer-events-none" id="lockdown-progress-glow" style="left: 0%;"></div>
+
+                <!-- Button Text & Icon Content -->
+                <div class="relative z-10 flex items-center justify-center gap-2.5 pointer-events-none">
+                  <div class="w-8 h-8 rounded-full bg-surface-container-lowest/80 border border-white/10 flex items-center justify-center text-primary transition-transform duration-300 group-hover:scale-110" id="lockdown-btn-icon-wrap">
+                    <span class="material-symbols-outlined text-[19px] text-primary transition-all duration-200" id="lockdown-btn-icon">lock</span>
+                  </div>
+                  <div class="flex flex-col items-start leading-tight">
+                    <span class="font-label-md text-label-md text-primary font-bold tracking-wider uppercase transition-colors" id="lockdown-btn-label">HOLD 3S TO ENGAGE</span>
+                    <span class="text-[9px] font-label-sm text-outline tracking-widest uppercase transition-colors" id="lockdown-btn-sublabel">Strict Zero-Bypass Mode</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div class="flex items-start justify-center gap-2 px-4 text-center">
+              <span class="material-symbols-outlined text-[14px] text-outline mt-0.5 shrink-0">verified_user</span>
+              <p class="font-body-sm text-body-sm text-outline">
+                Accessibility lock service armed · Hold button for 3s to enter strict lockdown
+              </p>
+            </div>
+          </div>
+
           <!-- QUICK PRESETS STRIP -->
           <div class="flex items-center justify-between gap-1.5 overflow-x-auto no-scrollbar py-1" id="presets-strip">
             <button class="preset-pill px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm text-label-sm uppercase transition-colors shrink-0" data-mins="15">15m</button>
@@ -740,38 +773,6 @@
             </div>
           </div>
 
-          <!-- PRIMARY ACTION SYSTEM: 3-SECOND HOLD LOCKDOWN -->
-          <div class="space-y-3 pt-2">
-            <div class="w-full relative">
-              <button class="relative w-full h-16 rounded-full bg-surface-container-high border border-white/10 hover:border-primary/40 flex items-center justify-center overflow-hidden transition-all duration-200 select-none touch-none shadow-[0_8px_24px_rgba(0,0,0,0.5)] group cursor-pointer" id="lockdown-btn">
-                <!-- Outer subtle pulse aura when ready -->
-                <div class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/10 via-white/5 to-cyan-500/10 opacity-70 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-
-                <!-- Animated High-Tech Progress Fill Track -->
-                <div class="absolute left-0 top-0 bottom-0 bg-primary w-0 pointer-events-none transition-none shadow-[0_0_20px_rgba(255,255,255,0.7)]" id="lockdown-hold-progress"></div>
-
-                <!-- Glow Edge Head on the progress bar -->
-                <div class="absolute top-0 bottom-0 w-2 bg-white blur-[2px] opacity-0 pointer-events-none" id="lockdown-progress-glow" style="left: 0%;"></div>
-
-                <!-- Button Text & Icon Content -->
-                <div class="relative z-10 flex items-center justify-center gap-2.5 pointer-events-none">
-                  <div class="w-8 h-8 rounded-full bg-surface-container-lowest/80 border border-white/10 flex items-center justify-center text-primary transition-transform duration-300 group-hover:scale-110" id="lockdown-btn-icon-wrap">
-                    <span class="material-symbols-outlined text-[19px] text-primary transition-all duration-200" id="lockdown-btn-icon">lock</span>
-                  </div>
-                  <div class="flex flex-col items-start leading-tight">
-                    <span class="font-label-md text-label-md text-primary font-bold tracking-wider uppercase transition-colors" id="lockdown-btn-label">HOLD 3S TO ENGAGE</span>
-                    <span class="text-[9px] font-label-sm text-outline tracking-widest uppercase transition-colors" id="lockdown-btn-sublabel">Strict Zero-Bypass Mode</span>
-                  </div>
-                </div>
-              </button>
-            </div>
-            <div class="flex items-start justify-center gap-2 px-4 text-center">
-              <span class="material-symbols-outlined text-[14px] text-outline mt-0.5 shrink-0">verified_user</span>
-              <p class="font-body-sm text-body-sm text-outline">
-                Accessibility lock service armed · Hold button for 3s to enter strict lockdown
-              </p>
-            </div>
-          </div>
         </section>
 
         <!-- ==================== SCREEN 2: ACTIVE LOCKOUT (Image 3 / Image 4) ==================== -->
