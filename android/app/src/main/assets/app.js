@@ -544,7 +544,7 @@
   }
 
   function setTime(mins, playSound = true) {
-    state.currentMinutes = Math.min(720, Math.max(5, mins));
+    state.currentMinutes = Math.min(720, Math.max(1, mins));
     saveState();
     updateTimerInterface();
     if (playSound) {
@@ -727,7 +727,7 @@
     const h = Math.max(0, parseInt(inputCustomH ? inputCustomH.value : '0', 10) || 0);
     const m = Math.max(0, parseInt(inputCustomM ? inputCustomM.value : '0', 10) || 0);
     let total = h * 60 + m;
-    if (total < 5) total = 5;
+    if (total < 1) total = 1; // Minimum 1 minute
     if (total > 720) total = 720; // 12 hours max
     return total;
   }
@@ -743,7 +743,7 @@
       } else if (h > 0) {
         customSummary.innerText = `Total: ${h}h (${total} mins)`;
       } else {
-        customSummary.innerText = `Total: ${m} mins`;
+        customSummary.innerText = `Total: ${m} min${m === 1 ? '' : 's'}`;
       }
     }
 
@@ -802,7 +802,7 @@
   if (btnMUp) {
     btnMUp.addEventListener('click', () => {
       if (!inputCustomM) return;
-      let val = (parseInt(inputCustomM.value, 10) || 0) + 5;
+      let val = (parseInt(inputCustomM.value, 10) || 0) + 1;
       if (val >= 60) {
         val = 0;
         if (inputCustomH) {
@@ -820,12 +820,14 @@
   if (btnMDown) {
     btnMDown.addEventListener('click', () => {
       if (!inputCustomM) return;
-      let val = (parseInt(inputCustomM.value, 10) || 0) - 5;
+      let val = (parseInt(inputCustomM.value, 10) || 0) - 1;
       if (val < 0) {
-        val = 55;
-        if (inputCustomH) {
+        if (inputCustomH && (parseInt(inputCustomH.value, 10) || 0) > 0) {
           let hVal = (parseInt(inputCustomH.value, 10) || 0) - 1;
-          if (hVal >= 0) inputCustomH.value = hVal;
+          inputCustomH.value = hVal;
+          val = 59;
+        } else {
+          val = 0;
         }
       }
       inputCustomM.value = val;
