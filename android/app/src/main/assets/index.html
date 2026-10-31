@@ -588,7 +588,7 @@
           </div>
           <div class="flex items-center gap-space-sm">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest cursor-pointer hover:bg-surface-variant active:scale-95 transition-all" id="btn-header-parachute" title="Emergency Eject Available">
-              <span class="text-[13px] leading-none select-none">🪂</span>
+              <img src="eject-seat.png" alt="Emergency Eject" class="w-4 h-4 object-contain select-none">
               <span class="font-label-sm text-label-sm text-primary font-bold" id="top-parachute-count">1</span>
             </div>
             <button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0 cursor-pointer hover:opacity-90 active:scale-95 transition-all shadow-sm" id="btn-header-profile" title="User Profile & Settings">
@@ -723,11 +723,11 @@
               </button>
             </div>
 
-            <!-- Parachute & Safety Control Card -->
+            <!-- Emergency Eject Safety Control Card -->
             <div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col justify-between space-y-3 cyber-card border border-white/5">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-1.5">
-                  <span class="text-[13px] select-none leading-none">🪂</span>
+                  <img src="eject-seat.png" alt="Emergency Eject" class="w-4 h-4 object-contain select-none">
                   <span class="font-label-sm text-label-sm uppercase text-primary tracking-wide">Emergency Eject</span>
                 </div>
                 <span class="font-label-sm text-label-sm text-on-error-container bg-error-container/40 px-1.5 py-0.5 rounded-full" id="card-parachute-left">1 left</span>
@@ -894,11 +894,11 @@
             </div>
           </div>
 
-          <!-- Emergency Escape: The Parachute Deployment Area -->
+          <!-- Emergency Escape: The Emergency Eject Area -->
           <div class="w-full rounded-DEFAULT bg-surface-container-low p-4 flex flex-col items-center shadow-lg border border-white/5">
             <div class="w-full flex items-center justify-between mb-3">
               <div class="flex items-center gap-2">
-                <span class="text-[14px]">🪂</span>
+                <img src="eject-seat.png" alt="Emergency Eject" class="w-4 h-4 object-contain select-none">
                 <span class="font-label-md text-label-md uppercase tracking-wider text-on-surface">Emergency Eject</span>
               </div>
               <div class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold" id="lock-eject-badge">
@@ -907,12 +907,12 @@
             </div>
             <!-- Long-press Button Wrapper -->
             <div class="w-full relative">
-              <button class="relative w-full h-14 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden transition-all duration-150 active:scale-[0.99] touch-none" id="parachuteBtn">
+              <button class="relative w-full h-14 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden transition-all duration-150 active:scale-[0.99] touch-none cursor-pointer" id="parachuteBtn">
                 <!-- Progress Fill Track -->
                 <div class="absolute left-0 top-0 bottom-0 bg-primary w-0 transition-none pointer-events-none" id="parachuteProgress"></div>
                 <!-- Button Text & Icon Content -->
                 <div class="relative z-10 flex items-center gap-2 pointer-events-none">
-                  <span class="material-symbols-outlined text-[20px] text-primary transition-colors" id="parachuteIcon">emergency_home</span>
+                  <img src="eject-seat.png" alt="Emergency Eject" class="w-5 h-5 object-contain" id="parachuteIcon">
                   <span class="font-label-md text-label-md text-primary font-semibold tracking-wider uppercase transition-colors" id="parachuteLabel">Hold 3s to Emergency Eject</span>
                 </div>
               </button>
@@ -1560,16 +1560,17 @@
         </button>
       </div>
 
-      <!-- Parachute Help Card -->
+      <!-- Emergency Eject Help Card -->
       <div class="p-3.5 rounded-xl bg-surface-container-high border border-white/10 space-y-1">
         <div class="flex items-center justify-between">
           <span class="font-label-sm text-xs text-primary font-bold flex items-center gap-1.5">
-            <span>🪂</span> Emergency Parachute
+            <img src="eject-seat.png" alt="Emergency Eject" class="w-4 h-4 object-contain">
+            <span>Emergency Eject</span>
           </span>
           <span class="px-2 py-0.5 rounded-full bg-surface-container-lowest font-mono text-[11px] text-white" id="profile-parachute-count">1 remaining</span>
         </div>
         <p class="text-[11px] text-outline leading-tight">
-          Parachutes allow a controlled escape from a locked session during genuine emergencies with a 3-second hold. Replenished once every 7 days.
+          Emergency eject allows an authorized escape from a locked session during genuine emergencies with a 3-second hold. Replenished once every 7 days.
         </p>
       </div>
 
@@ -1587,15 +1588,15 @@
     </div>
   </div>
 
-  <!-- 6. Parachute Info Dialog -->
+  <!-- 6. Emergency Eject Info Dialog -->
   <div class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4" id="modal-parachute-info">
     <div class="w-full max-w-sm rounded-2xl bg-surface-container-low border border-white/10 p-5 flex flex-col space-y-4 shadow-2xl">
       <div class="flex items-center justify-between border-b border-white/10 pb-3">
         <div class="flex items-center gap-2">
-          <span class="text-xl">🪂</span>
-          <h3 class="font-headline-md text-base text-primary font-bold">Emergency Parachute</h3>
+          <img src="eject-seat.png" alt="Emergency Eject" class="w-5 h-5 object-contain">
+          <h3 class="font-headline-md text-base text-primary font-bold">Emergency Eject</h3>
         </div>
-        <button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-outline hover:text-white" id="btn-close-parachute-info">
+        <button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-outline hover:text-white cursor-pointer" id="btn-close-parachute-info">
           ✕
         </button>
       </div>
@@ -1605,13 +1606,13 @@
           <span class="text-xs text-primary font-bold font-mono" id="parachute-info-status">1 Available</span>
         </div>
         <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
-          The emergency parachute is designed exclusively for urgent, real-world situations while a strict focus lockdown is underway.
+          The emergency eject is designed exclusively for urgent, real-world situations while a strict focus lockdown is underway.
         </p>
         <p class="font-body-sm text-xs text-outline leading-relaxed">
-          To deploy, hold the eject button for 3 uninterrupted seconds. Using a parachute safely unlocks all apps but freezes your current streak.
+          To deploy, hold the eject button for 3 uninterrupted seconds. Using an emergency eject safely unlocks all apps but freezes your current streak.
         </p>
       </div>
-      <button class="w-full py-2.5 rounded-full bg-primary text-on-primary font-label-md text-xs font-bold uppercase" id="btn-dismiss-parachute-info">
+      <button class="w-full py-2.5 rounded-full bg-primary text-on-primary font-label-md text-xs font-bold uppercase cursor-pointer" id="btn-dismiss-parachute-info">
         Understood
       </button>
     </div>

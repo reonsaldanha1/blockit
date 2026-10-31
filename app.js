@@ -45,7 +45,7 @@
       { id: 'r3', name: 'Night Sleep Sanctuary', time: '23:00', duration: 180, days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], active: false }
     ],
 
-    scratchpadContent: "blockWho Focus Principles:\n1. Zero bypass allowed until timer reaches zero.\n2. Protect dopamine reservoirs.\n3. The Parachute is for true emergencies only.\n"
+    scratchpadContent: "blockWho Focus Principles:\n1. Zero bypass allowed until timer reaches zero.\n2. Protect dopamine reservoirs.\n3. The Emergency Eject is for true emergencies only.\n"
   };
 
   const REMOVED_BUILTIN_IDS = new Set(['calc', 'scratchpad', 'maps', 'phone', 'reader', 'camera', 'audio']);
@@ -1634,7 +1634,7 @@
   }
 
   // ==========================================
-  // 6. EMERGENCY PARACHUTE EJECT (HOLD 3S)
+  // 6. EMERGENCY EJECT (HOLD 3S)
   // ==========================================
   const chuteBtn = document.getElementById('parachuteBtn');
   const chuteProgress = document.getElementById('parachuteProgress');
@@ -1647,12 +1647,12 @@
     e.preventDefault();
     if (!state.isLocked) return;
 
-    // === ZERO PARACHUTES = NO EXIT (BlockIt strict mode) ===
+    // === ZERO EMERGENCY EJECTS = NO EXIT (BlockIt strict mode) ===
     if (state.parachutesCount <= 0) {
       hapticFeedback(30);
       if (chuteLabel) {
         const orig = chuteLabel.innerText;
-        chuteLabel.innerText = '⚠ No Parachutes Left';
+        chuteLabel.innerText = '✕ No Emergency Ejects Left';
         setTimeout(() => { chuteLabel.innerText = orig; }, 1800);
       }
       sound.playChime('alert');
@@ -1677,13 +1677,13 @@
       // Completed full 3-second hold!
       sound.playChime('alert');
       hapticFeedback(80);
-      if (chuteLabel) chuteLabel.innerText = "PARACHUTE DEPLOYED";
+      if (chuteLabel) chuteLabel.innerText = "EMERGENCY EJECT ACTIVATED";
       if (streakWarning) {
-        streakWarning.innerText = "Session unlocked via parachute";
+        streakWarning.innerText = "Session unlocked via emergency eject";
         streakWarning.classList.add('text-error');
       }
       
-      // Decrement parachute
+      // Decrement emergency eject
       if (state.parachutesCount > 0) {
         state.parachutesCount--;
       }
@@ -2920,7 +2920,7 @@
     if (!f) return;
     if (nameEl) nameEl.innerText = `Floor ${f.floor}: ${f.mode}`;
     const durStr = f.duration >= 60 ? `${(f.duration / 60).toFixed(1)} Hours` : `${f.duration} Minutes`;
-    if (detailsEl) detailsEl.innerText = `Constructed ${f.date} · ${durStr} (Min 3h requirement met) · ${f.parachutes} Parachutes Used`;
+    if (detailsEl) detailsEl.innerText = `Constructed ${f.date} · ${durStr} (Min 3h requirement met) · ${f.parachutes} Emergency Ejects Used`;
   }
 
   // ==========================================
@@ -3468,7 +3468,7 @@
   }
 
   // ==========================================
-  // 14. EMERGENCY PARACHUTE INFO DIALOG
+  // 14. EMERGENCY EJECT INFO DIALOG
   // ==========================================
   const btnHeaderParachute = document.getElementById('btn-header-parachute');
   const modalParachuteInfo = document.getElementById('modal-parachute-info');
@@ -3478,7 +3478,7 @@
   if (btnHeaderParachute) {
     btnHeaderParachute.addEventListener('click', () => {
       if (state.isLocked) {
-        // If locked, scroll smoothly to the parachute long-press button
+        // If locked, scroll smoothly to the emergency eject long-press button
         const chuteBtnEl = document.getElementById('parachuteBtn');
         if (chuteBtnEl) {
           chuteBtnEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
